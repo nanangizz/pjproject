@@ -13,7 +13,6 @@ body:
       placeholder: |
         e.g:
         Assertion in answering an incoming video call with response code 183.
-      value: ""
     validations:
       required: true
   - type: textarea
@@ -27,7 +26,6 @@ body:
         1. make video call from other SIP client or another pjsua instance
         1. answer the call with 180 and soon 183, assertion occurs!
         The assertion didn't occur if the call was answered with 183 directly.
-      value: ""
     validations:
       required: true
   - type: input
@@ -53,6 +51,7 @@ body:
         - 'config_site.h' contents: ...
         - Related third-party lib & version: ... (e.g: OpenSSL 1.1.1b)
         - Applied patch(es): (e.g: patches from issue/PR #xyz)
+    validations:
       required: true
   - type: textarea
     id: logs
