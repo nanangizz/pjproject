@@ -1,42 +1,62 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: 'type: bug'
-assignees: ''
-
----
-
-**Describe the bug**
-A clear and concise description of what the bug is.
-
-**To Reproduce**
-Steps to reproduce the behavior:
-
-1. run pjsua app with parameter: `--video --registrar sip:some.sip.registrar ...`
-1. make two video calls to: `sip:abc` and `sip:xyz`1
-1. setup video conference: `vid conf cc ...`
-1. assertion occurs!
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
-**Logs/Screenshots**
-If applicable, add screenshots PJSIP logs with verbosity level 5, packet capture (e.g: using Wireshark), audio/video recording, screenshot, etc.
-
-**Desktop/Smartphone (please complete the following information):**
-
-- OS, Distribution & Version: [e.g. MacOS Mojave, Ubuntu 16.04, iOS 13]
-- PJSIP
-  - version: ...
-  - applied patch(es): [e.g: patches from issue/PR xyz]
-  - `configure` script params: ...
-  - `config_site.h` contents: ...
-  - related third party libraries & versions: [e.g: OpenSSL 1.1.1b]
-
-**Smartphone (please also complete the following information):**
-
-- Device: [e.g. iPhone 6]
-
-**Additional context**
-Add any other context about the problem here.
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: [bug, triage]
+assignees:
+  - octocat
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+      placeholder: Tell us what you see!
+      value: "A bug happened!"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: What version of our software are you running?
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: What browsers are you seeing the problem on?
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
