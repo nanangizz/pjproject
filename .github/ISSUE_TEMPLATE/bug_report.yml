@@ -35,7 +35,8 @@ body:
     attributes:
       label: PJSIP version
       description: What PJSIP version are you using?
-      placeholder: e.g: 2.11
+      placeholder: |
+        e.g: 2.11
     validations:
       required: true
   - type: textarea
