@@ -1,62 +1,60 @@
 name: Bug Report
 description: File a bug report
-title: "[Bug]: "
-labels: [bug, triage]
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-  - type: input
-    id: contact
-    attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
   - type: textarea
-    id: what-happened
+    id: bug-desc
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: |
+        e.g:
+        Assertion in answering an incoming video call with response code 183.
+      value: ""
     validations:
       required: true
-  - type: dropdown
+  - type: textarea
+    id: bug-repro
+    attributes:
+      label: Steps to reproduce
+      description: Describe how to reproduce the bug using sample apps such as [pjsua app](https://www.pjsip.org/pjsua.htm), [pjsua2 android](https://trac.pjsip.org/repos/wiki/Getting-Started/Android#Tryingoursampleapplicationandcreatingyourown), [iOS ipjsua](https://trac.pjsip.org/repos/wiki/Getting-Started/iPhone#BuildingPJSIP), or [other sample apps](https://github.com/pjsip/pjproject/tree/master/pjsip-apps/src/samples).
+      placeholder: |
+        e.g:
+        1. run pjsua app with parameter: `--video --registrar sip:some.sip.registrar ...`
+        1. make video call from other SIP client or another pjsua instance
+        1. answer the call with 180 and soon 183, assertion occurs!
+        The assertion didn't occur if the call was answered with 183 directly.
+      value: ""
+    validations:
+      required: true
+  - type: input
     id: version
     attributes:
-      label: Version
-      description: What version of our software are you running?
-      options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+      label: PJSIP version
+      description: What PJSIP version are you using?
+      placeholder: e.g: 2.11
     validations:
       required: true
-  - type: dropdown
-    id: browsers
+  - type: textarea
+    id: context
     attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+      label: Context
+      description: Context about the problem here, e.g: platform, device, OS version, configuration settings.
+      placeholder: |
+        e.g:
+        - The issue happens on Windows/Linux/MacOS desktop, iPhone 12, or Android device XYZ.
+        - App is built using Android NDK r20 or newer.
+        - 'configure-android' param: ...
+        - 'config_site.h' contents: ...
+        - Related third-party lib & version: ... (e.g: OpenSSL 1.1.1b)
+        - Applied patch(es): (e.g: patches from issue/PR #xyz)
+      required: true
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      label: Log
+      description: Please copy and paste any relevant PJSIP log output (with verbosity level 5). This will be automatically formatted into code, so no need for backticks.
       render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
