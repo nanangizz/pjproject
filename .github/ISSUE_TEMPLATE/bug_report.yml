@@ -58,3 +58,5 @@ body:
       label: Log, call stack, etc
       description: Please copy and paste any relevant PJSIP log output (with verbosity level 5), call stack trace, etc which may be useful for the investigation. This will be automatically formatted into code, so no need for backticks.
       render: shell
+    validations:
+      required: true
