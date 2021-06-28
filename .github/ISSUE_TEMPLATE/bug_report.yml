@@ -22,9 +22,10 @@ body:
       placeholder: |
         E.g:
         1. run pjsua app with parameter: `--video --registrar sip:some.sip.registrar ...`
-        1. make video call from other SIP client or another pjsua instance
-        1. answer the call with 180 and soon 183, assertion occurs!
+        2. make video call from other SIP client or another pjsua instance
+        3. answer the call with 180 and soon 183, assertion occurs!
         The assertion didn't occur if the call was answered with 183 directly.
+      render: markdown
     validations:
       required: true
   - type: input
@@ -50,6 +51,7 @@ body:
         - 'config_site.h' contents: ...
         - Related third-party lib & version: ... (e.g: OpenSSL 1.1.1b)
         - Applied patch(es): (e.g: patches from issue/PR #xyz)
+      render: markdown
     validations:
       required: true
   - type: textarea
