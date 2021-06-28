@@ -43,7 +43,8 @@ body:
     id: context
     attributes:
       label: Context
-      description: Context about the problem here, e.g: platform, device, OS version, configuration settings.
+      description: |
+        Context about the problem here, e.g: platform, device, OS version, configuration settings.
       placeholder: |
         e.g:
         - The issue happens on Windows/Linux/MacOS desktop, iPhone 12, or Android device XYZ.
