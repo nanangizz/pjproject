@@ -374,6 +374,7 @@ static int server_thread(void *p)
 
 	rc = pj_dns_parse_packet(pool, pkt, (unsigned)pkt_len, &req);
 	if (rc != PJ_SUCCESS) {
+	    PJ_LOG(3,(THIS_FILE, "Server %d received packet len=%d", srv - &g_server[0], pkt_len));
 	    app_perror("server error parsing packet", rc);
 	    continue;
 	}
